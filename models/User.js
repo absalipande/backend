@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 const { Schema, model } = mongoose;
+mongoose.set("strictQuery", false);
 
 const userSchema = new Schema(
   {
