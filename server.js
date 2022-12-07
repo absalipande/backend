@@ -3,7 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import helmet from 'helmet';
-import UserRoute from '../backend/routes/UserRoute.js'
+import UserRoute from './routes/UserRoute.js'
 dotenv.config();
 
 const app = express();
