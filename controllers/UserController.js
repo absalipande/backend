@@ -38,11 +38,12 @@ export const postUser = async (req, res) => {
 
 // PATCH /users/:id
 export const updateUser = async (req, res) => {
-  const userId = req.header('X-USER-ID');
-  const { content } = req.body;
   try {
-    await User.findByIdAndUpdate({ _id: userId }, { $set: content });
-    res.status(200).json({ message: 'Updated Post' });
+    const updatedUser = await User.findByIdAndUpdate(
+      { _id: req.params.id },
+      { $set: req.body }
+    );
+    res.status(200).json(updatedUser);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
