@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 const { Schema, model } = mongoose;
-mongoose.set('strictQuery', false);
+mongoose.set("strictQuery", false);
 
 const userSchema = new Schema(
   {
@@ -20,12 +20,19 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    createdAt: {
+      type: Date,
+      default: () => Date.now(),
+    },
+    updatedAt: {
+      type: Date,
+      default: () => Date.now(),
+    },
   },
   {
     strict: true,
     strictQuery: true,
-  },
-  { timestamps: true }
+  }
 );
 
 const User = model('User', userSchema);
